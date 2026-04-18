@@ -1,4 +1,3 @@
-```markdown
 # 🏦 FD Advisor - AI-Powered Fixed Deposit Assistant
 
 Your trusted, intelligent guide to Fixed Deposits.
@@ -61,7 +60,6 @@ Want to run this project locally? Follow these steps:
 ```bash
 git clone [https://github.com/thevaibhavtyagi/fd-advisor.git](https://github.com/thevaibhavtyagi/fd-advisor.git)
 cd fd-advisor
-```
 
 ### 3. Backend Setup
 
