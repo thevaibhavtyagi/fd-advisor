@@ -21,18 +21,13 @@
   "chat": {
     "welcome": "Hello! I'm your FD Advisor. I'll help you understand Fixed Deposit offers in simple words. How can I help you today?",
     "askForOffer": "Sure, I can help! Please share the FD offer details you received, and I'll explain it in simple terms.",
-    "offerExplanation": "Let me break this down for you:\n\n**Bank:** Suryoday Small Finance Bank (a trusted RBI-regulated bank)\n\n**Interest Rate:** 8.50% p.a. means for every ₹100 you invest, you'll earn ₹8.50 profit each year.\n\n**Tenure:** 12M tenor means your money stays deposited for 12 months (1 year).\n\nThis is a good rate! Let me show you exactly how much you can earn:",
     "calculatorIntro": "Use the slider below to see your potential earnings:",
     "bookingPrompt": "Would you like to book this FD right now? I can guide you through it in just 2 minutes!",
     "inputPlaceholder": "Type your message...",
     "send": "Send",
     "yes": "Yes, let's book!",
     "no": "Not now",
-    "collectName": "Great! Let's get started. What's your full name as per your PAN card?",
-    "collectPan": "Perfect! Now, please share your PAN card number (e.g., ABCDE1234F)",
-    "collectNominee": "Almost done! Who would you like to nominate for this FD?",
-    "bookingSuccess": "Congratulations! Your FD booking is confirmed. You'll receive a confirmation SMS shortly.",
-    "bookingDetails": "Booking Details",
+    "bookingSuccess": "Congratulations! Your FD booking is confirmed.",
     "noWorries": "No problem! Feel free to ask me any other questions about Fixed Deposits. I'm here to help!"
   },
   "calculator": {
@@ -42,43 +37,20 @@
     "profit": "Your Profit",
     "interestRate": "Interest Rate",
     "tenure": "Tenure",
-    "months": "months"
+    "months": "months",
+    "maturityAmount": "Maturity Amount",
+    "interestEarned": "Interest Earned"
   },
   "jargon": {
-    "paRate": "**p.a. (Per Annum)** means 'per year'. So 8.50% p.a. means you earn 8.50% interest on your money every year. For example, if you invest ₹10,000, you'll earn about ₹850 as interest in one year.",
-    "tenor": "**Tenor** means how long your money stays in the Fixed Deposit. 12M means 12 months, which is 1 year. You cannot withdraw your money before this period without penalty.",
-    "maturity": "**Maturity Amount** is the total money you'll receive when your FD period ends. This includes your original investment plus all the interest earned.",
-    "compound": "**Compound Interest** means you earn interest on your interest too! Your money grows faster because the bank calculates interest on the increased amount.",
-    "fdInsurance": "Your FD is insured up to ₹5 lakhs by DICGC (Deposit Insurance). Even if something happens to the bank, your money up to ₹5 lakhs is safe.",
     "financialTerm": "Financial Term",
     "simpleExplanation": "Simple Explanation",
-    "example": "Example",
     "gotIt": "Got it!"
-  },
-  "booking": {
-    "confirmed": "Booking Confirmed!",
-    "summary": "Summary",
-    "bank": "Bank",
-    "amount": "Investment Amount",
-    "rate": "Interest Rate",
-    "tenure": "Tenure",
-    "maturity": "Maturity Amount",
-    "nominee": "Nominee",
-    "referenceId": "Reference ID"
-  },
-  "common": {
-    "back": "Back",
-    "next": "Next",
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "close": "Close",
-    "processing": "Processing..."
   },
   "success": {
     "title": "Booking Confirmed!",
     "subtitle": "Your FD booking request has been received",
     "bookingDetails": "Your FD Details",
-    "callbackInfo": "Our team will call you within 24 hours to complete the booking",
+    "callbackInfo": "Our team will call you within 24 hours to complete the KYC.",
     "timeline": "Expected completion: 24-48 hours",
     "startNew": "Start New Conversation"
   }
