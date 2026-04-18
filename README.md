@@ -19,11 +19,35 @@ Instead of forcing users to manually fill out tedious web forms, the app allows 
 
 ## 📸 Product Gallery
 
-1. **Landing & Chat Interface:** ![Landing Page](./assets/homepage.png)
-2. **Multilingual Support (EN/HI/MR):** ![Welcome Screen](./assets/welcome.png)
-3. **Dynamic Jargon Highlighting:** ![Start Chat](./assets/start.png)
-4. **Interactive Profit Calculator:** ![Calculator Interface](./assets/chat.png)
-5. **Secure Lead Generation Form:** ![Booking Confirmation](./assets/confirm.png)
+<p align="center">
+  <img src="./assets/homepage.png" width="80%" alt="Landing Page" />
+  <br>
+  <em>Fig 1: Modern, high-fidelity Landing Interface</em>
+</p>
+
+<p align="center">
+  <img src="./assets/welcome.png" width="80%" alt="Welcome Screen" />
+  <br>
+  <em>Fig 2: Multilingual Onboarding (EN/HI/MR)</em>
+</p>
+
+<p align="center">
+  <img src="./assets/start.png" width="80%" alt="Start Chat" />
+  <br>
+  <em>Fig 3: AI-Powered Conversational Start</em>
+</p>
+
+<p align="center">
+  <img src="./assets/chat.png" width="80%" alt="Calculator Interface" />
+  <br>
+  <em>Fig 4: Interactive Profit & Maturity Calculator</em>
+</p>
+
+<p align="center">
+  <img src="./assets/confirm.png" width="80%" alt="Booking Confirmation" />
+  <br>
+  <em>Fig 5: Secure KYC & Lead Capture Form</em>
+</p>
 
 ---
 
