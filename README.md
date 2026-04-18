@@ -5,7 +5,6 @@
 [![Demo Video](https://img.shields.io/badge/Watch-Demo_Video-FF0000?style=for-the-badge&logo=youtube)](https://drive.google.com/file/d/1UfHlUAnBtbJ_9pCQyf_2IbOYck2Vzw4Q/view?usp=sharing)
 [![Tech Stack](https://img.shields.io/badge/Stack-MERN_|_Next.js_|_Gemini-20232A?style=for-the-badge)](#%EF%B8%8F-tech-stack)
 
-> **Note:** The Express backend is deployed on Render's free tier. We utilize an automated cron-job to prevent server cold starts, ensuring the AI responds instantly when you test the app.
 
 ---
 
@@ -19,31 +18,31 @@ Instead of forcing users to manually fill out tedious web forms, the app allows 
 
 ## 📸 Product Gallery
 
-<p align="center">
+<p>
   <img src="./assets/homepage.png" height="400px" alt="Landing Page" />
   <br>
   <em>Fig 1: Modern, high-fidelity Landing Interface</em>
 </p>
 
-<p align="center">
+<p>
   <img src="./assets/welcome.png" height="400px" alt="Welcome Screen" />
   <br>
   <em>Fig 2: Multilingual Onboarding (EN/HI/MR)</em>
 </p>
 
-<p align="center">
+<p>
   <img src="./assets/start.png" height="400px" alt="Start Chat" />
   <br>
   <em>Fig 3: AI-Powered Conversational Start</em>
 </p>
 
-<p align="center">
+<p>
   <img src="./assets/chat.png" height="400px" alt="Calculator Interface" />
   <br>
   <em>Fig 4: Interactive Profit & Maturity Calculator</em>
 </p>
 
-<p align="center">
+<p>
   <img src="./assets/confirm.png" height="400px" alt="Booking Confirmation" />
   <br>
   <em>Fig 5: Secure KYC & Lead Capture Form</em>
