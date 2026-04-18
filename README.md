@@ -34,21 +34,21 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
 ## 📸 Product Gallery
 
 <p align="center">
-  <img src="./assets/homepage.png" height="400px" alt="Landing Page" />
+  <img src="./assets/start.png" height="400px" alt="Landing Page" />
   <br>
-  <em>Fig 1: Modern, high-fidelity Landing Interface</em>
+  <em>Fig 1: Starting page of web app</em>
 </p>
 
 <p align="center">
-  <img src="./assets/welcome.png" height="400px" alt="Welcome Screen" />
+  <img src="./assets/homepage.png" height="400px" alt="Welcome Screen" />
   <br>
   <em>Fig 2: Multilingual Onboarding (EN/HI/MR)</em>
 </p>
 
 <p align="center">
-  <img src="./assets/start.png" height="400px" alt="Start Chat" />
+  <img src="./assets/welcome.png" height="400px" alt="Start Chat" />
   <br>
-  <em>Fig 3: AI-Powered Conversational Start</em>
+  <em>Fig 3: --</em>
 </p>
 
 <p align="center">
