@@ -1,122 +1,112 @@
-# 🏦 FD Advisor - AI-Powered Fixed Deposit Assistant
+# 🏦 FD Advisor
+**An AI-Powered Fixed Deposit Assistant for the Modern Indian User.**
 
-Your trusted, intelligent guide to Fixed Deposits.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-0D9488?style=for-the-badge&logo=vercel)](https://fd-advisor.vercel.app)
+[![Demo Video](https://img.shields.io/badge/Watch-Demo_Video-FF0000?style=for-the-badge&logo=youtube)](https://drive.google.com/file/d/1UfHlUAnBtbJ_9pCQyf_2IbOYck2Vzw4Q/view?usp=sharing)
+[![Tech Stack](https://img.shields.io/badge/Stack-MERN_|_Next.js_|_Gemini-20232A?style=for-the-badge)](#%EF%B8%8F-tech-stack)
 
-Live Demo: https://fd-advisor.vercel.app
-(Note: The Express backend is hosted on Render. We utilize a cron-job to prevent cold starts, ensuring instant AI responses).
+> **Note:** The Express backend is deployed on Render's free tier. We utilize an automated cron-job to prevent server cold starts, ensuring the AI responds instantly when you test the app.
+
+---
 
 ## 📖 Overview
 
-FD Advisor is a multilingual, AI-powered Fintech lead-generation funnel built for the modern Indian user. It transforms complex banking jargon and raw Fixed Deposit (FD) offers into simple, actionable insights.
+Navigating fixed deposits and banking jargon can be overwhelming. FD Advisor is a multilingual, AI-driven lead-generation funnel designed to make financial decisions frictionless. 
 
-Instead of filling out long forms, users can simply paste an FD offer they received via SMS or WhatsApp (e.g., "SBI 7.5% p.a. 12 months"). The embedded Google Gemini 2.5 Flash AI parses the text, calculates the maturity returns, explains difficult financial terms in the user's preferred language, and smoothly guides them through a secure KYC lead-capture form.
+Instead of forcing users to manually fill out tedious web forms, the app allows them to simply paste an FD offer they received via SMS or WhatsApp (e.g., *"SBI is offering 7.5% p.a. for 12 months"*). Behind the scenes, Google's **Gemini 2.5 Flash** parses the unstructured text, calculates the returns, translates complex terms into the user's preferred language, and smoothly transitions them into a secure KYC lead-capture flow.
+
+---
+
+## 📸 Product Gallery
+
+1. **Landing & Chat Interface:** ![Landing Page](./assets/homepage.png)
+2. **Multilingual Support (EN/HI/MR):** ![Welcome Screen](./assets/welcome.png)
+3. **Dynamic Jargon Highlighting:** ![Start Chat](./assets/start.png)
+4. **Interactive Profit Calculator:** ![Calculator Interface](./assets/chat.png)
+5. **Secure Lead Generation Form:** ![Booking Confirmation](./assets/confirm.png)
+
+---
 
 ## ✨ Core Features
 
-* **🧠 Advanced AI Parsing (Gemini 2.5 Flash):** Extracts exact financial data (Bank Name, Interest Rate, Tenure) from natural language using strict JSON-schema system prompts.
-* **🌍 Seamless Multilingual Support:** Chat, read explanations, and view UI elements in English (EN), Hindi (HI), and Marathi (MR) using react-i18next.
-* **🔍 Dynamic Jargon Highlighting:** The AI automatically identifies complex financial terms (like p.a., Tenure). The frontend uses an advanced case-insensitive regex engine to highlight these terms dynamically, making them clickable to open a "Jargon Drawer" with simple definitions.
-* **🧮 Interactive Profit Calculator:** Real-time maturity calculator utilizing a compound interest algorithm, complete with fluid visual sliders.
-* **🛡️ Secure Lead Generation:** In-chat KYC form capturing the user's Full Name and PAN. Includes strict frontend Regex validation (e.g., ABCDE1234F) and backend Mongoose schema validation before saving to the database.
-* **💾 Persistent State:** Chat history and user preferences are saved locally using zustand/middleware/persist so users never lose their conversational context.
-* **🎨 Premium UI/UX:** Built with Tailwind CSS and Framer Motion for buttery-smooth animations, bouncy chat bubbles, and a highly responsive, mobile-first aesthetic.
+* 🧠 **Intelligent Parsing (Gemini 2.5 Flash):** Extracts precise financial data (Bank Name, Interest Rate, Tenure) directly from natural language using highly constrained JSON-schema system prompts.
+* 🌍 **Built for India:** Seamlessly chat, read explanations, and navigate the UI in English, Hindi, and Marathi, powered by `react-i18next`.
+* 🔍 **Contextual Jargon Buster:** The AI automatically flags complex financial terms (like *p.a.* or *Tenure*). A custom case-insensitive regex engine highlights these terms dynamically in the chat, making them clickable to reveal simple, bottom-sheet definitions.
+* 🧮 **Interactive Maturity Calculator:** A real-time compound interest engine complete with fluid visual sliders so users can explore their potential returns.
+* 🛡️ **Verified Lead Capture:** An in-chat KYC form that captures the user's Full Name and PAN. It utilizes strict frontend regex validation (e.g., `ABCDE1234F`) and backend Mongoose schema enforcement before touching the database.
+* 💾 **Local Persistence:** Chat history and language preferences are stored locally via `zustand/middleware/persist`, ensuring users never lose their conversational context if they refresh the page.
+* 🎨 **Premium UI/UX:** Designed with a clean, modern aesthetic. Built entirely with Tailwind CSS and Framer Motion for buttery-smooth animations and bouncy, responsive chat bubbles.
+
+---
 
 ## 🛠️ Tech Stack
 
-### Frontend (Deployed on Vercel)
+| Frontend | Backend | AI & Deployment |
+| :--- | :--- | :--- |
+| **Next.js** (React) | **Node.js** | **Gemini 2.5 Flash** API |
+| **Tailwind CSS** | **Express.js** | **Vercel** (Frontend) |
+| **Zustand** (State Persistence) | **MongoDB Atlas** | **Render** (Backend) |
+| **Framer Motion** | **Mongoose** ODM | **cron-job.org** (Anti-sleep) |
+| **React-i18next** | **CORS & Dotenv** | |
 
-* **Framework:** Next.js (React)
-* **Styling:** Tailwind CSS
-* **State Management:** Zustand (with LocalStorage persistence)
-* **Animations:** Framer Motion & Canvas-Confetti
-* **Localization:** React-i18next
-
-### Backend (Deployed on Render)
-
-* **Runtime:** Node.js
-* **Framework:** Express.js
-* **Database:** MongoDB Atlas (Mongoose ODM)
-* **AI Engine:** @google/generative-ai (Gemini 2.5 Flash API)
-* **Security & Utils:** cors (Strict Origin Policy), dotenv
+---
 
 ## 🏗️ Architecture & Engineering Highlights
 
-* **Strict JSON Prompt Engineering:** Gemini 2.5 Flash is constrained via system instructions to only return a highly specific JSON schema. The backend automatically sanitizes markdown code blocks before parsing to prevent crash loops.
-* **The "Anti-Sleep" Cron Architecture:** To combat serverless free-tier inactivity cycles, an external Cron Job (cron-job.org) pings the server's /health endpoint every 14 minutes. This ensures the Express server never spins down, providing zero-latency AI responses to the end user.
-* **Robust CORS & Security:** The Express backend is locked down to strictly allow API requests only from the deployed Vercel domain and the local development environment, rejecting unauthorized payload attempts.
+* **JSON Prompt Engineering & Sanitization:** Gemini 2.5 Flash is strictly instructed to return data in a predictable JSON schema. To prevent crash loops, the backend middleware automatically strips markdown formatting from the AI's response before parsing the payload.
+* **The "Anti-Sleep" Cron Architecture:** To combat serverless free-tier inactivity cycles, an external ping hits the server's `/health` endpoint every 14 minutes. This keeps the Express server perpetually awake, guaranteeing zero-latency AI responses for end users.
+* **Robust CORS Policy:** The Express backend is locked down to explicitly accept API requests *only* from the deployed Vercel production domain and the local development environment, rejecting unauthorized cross-origin attempts.
 
-## 🚀 Local Development Setup
+---
 
-Want to run this project locally? Follow these steps:
+## 🚀 Local Development
 
-### 1. Prerequisites
+To run this project locally, ensure you have Node.js (v18+) installed, a MongoDB Atlas cluster, and a valid Google Gemini API key.
 
-* Node.js (v18+)
-* MongoDB Atlas Account (or local MongoDB)
-* Google Gemini API Key
-
-### 2. Clone the Repository
-
+### 1. Clone & Install
 ```bash
 git clone [https://github.com/thevaibhavtyagi/fd-advisor.git](https://github.com/thevaibhavtyagi/fd-advisor.git)
 cd fd-advisor
 
-### 3. Backend Setup
-
+### 2. Backend Setup
+Open a terminal in the `backend` directory:
 ```bash
 cd backend
 npm install
 ```
-
-Create a `.env` file inside the `backend` folder:
-
+Create a `.env` file in the `backend` folder:
 ```env
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
 GEMINI_API_KEY=your_google_gemini_api_key
 ```
-
-Start the backend server:
-
+Start the server:
 ```bash
 npm start
+# Output should confirm: [MongoDB] Connected successfully
 ```
 
-You should see `[MongoDB] Connected successfully` and `[Server] Running on port 5000`.
-
-### 4. Frontend Setup
-
-Open a new terminal and stay in the root `fd-advisor` folder:
-
+### 3. Frontend Setup
+Open a new terminal in the root `fd-advisor` directory:
 ```bash
 npm install
 ```
-
 Create a `.env.local` file in the root folder:
-
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
-
 Start the development server:
-
 ```bash
 npm run dev
 ```
+Visit `http://localhost:3000` in your browser.
 
-Open `http://localhost:3000` in your browser.
-
-## 📱 Screenshots & Demo
-
-(Add your Blostem Hackathon demo video link here!)
-
-Demo Video: [Link to YouTube/Loom Video]
+---
 
 ## 👤 Author
 
-Developed with ❤️ by Vaibhav Tyagi for the Blostem Hackathon.
+Designed and engineered by **Vaibhav Tyagi** for the Blostem Hackathon.
 
-Portfolio: vaibhavtyagi.me
-
-GitHub: @thevaibhavtyagi
+* **Portfolio:** [vaibhavtyagi.me](https://vaibhavtyagi.me)
+* **GitHub:** [@thevaibhavtyagi](https://github.com/thevaibhavtyagi)
 ```
