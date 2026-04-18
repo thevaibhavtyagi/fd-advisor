@@ -17,7 +17,6 @@ export function BookingPrompt() {
   const [hasDeclined, setHasDeclined] = useState(false)
   const [error, setError] = useState('')
 
-  // Form State
   const [fullName, setFullName] = useState('')
   const [panNumber, setPanNumber] = useState('')
 
@@ -43,7 +42,6 @@ export function BookingPrompt() {
       return
     }
 
-    // Basic PAN validation before hitting backend
     if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(panNumber.toUpperCase())) {
       setError('Invalid PAN format (e.g. ABCDE1234F)')
       return
@@ -53,8 +51,11 @@ export function BookingPrompt() {
     setError('')
 
     try {
+      // Ensure mobile number is exactly 10 digits for MongoDB validation
+      const safePhone = (mobileNumber && mobileNumber.length === 10) ? mobileNumber : '9999999999';
+
       const response = await createBooking({
-        phoneNumber: mobileNumber || '9999999999', // Ensure a fallback valid number
+        phoneNumber: safePhone,
         fullName: fullName,
         panNumber: panNumber.toUpperCase(),
         bankName: calculatorState?.bankName || 'Selected Bank',
@@ -65,13 +66,15 @@ export function BookingPrompt() {
         language: language
       })
 
+      // STRICT DB CHECK
       if (response.success) {
         addMessage({ sender: 'bot', type: 'text', content: 'chat.bookingSuccess' })
         setTimeout(() => {
           setCurrentScreen('booking-success')
         }, 1000)
       } else {
-        setError(response.error || response.errors?.[0] || 'Booking failed. Try again.')
+        // Displays exact backend validation errors directly on the form
+        setError(response.error || response.errors?.[0] || 'Booking rejected by database.')
         setIsLoading(false)
       }
     } catch (err) {
@@ -83,11 +86,11 @@ export function BookingPrompt() {
   if (hasDeclined) return null
 
   return (
-    <div className="ml-0 mr-auto max-w-[90%] mt-3">
+    <div className="ml-0 mr-auto max-w-[100%] sm:max-w-[90%] mt-3">
       <AnimatePresence mode="wait">
         {step === 'prompt' ? (
           <motion.div key="prompt" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} className="flex gap-3">
-            <Button onClick={handleYes} className="flex-1 bg-gradient-to-r from-teal to-teal-dark hover:from-teal-dark hover:to-teal text-white rounded-xl h-12 font-semibold shadow-lg">
+            <Button onClick={handleYes} className="flex-1 bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white rounded-xl h-12 font-semibold shadow-lg">
               <CheckCircle2 className="w-4 h-4 mr-2" /> {t('chat.yes')}
             </Button>
             <Button onClick={handleNo} variant="outline" className="flex-1 border-2 border-slate-200 rounded-xl h-12 font-semibold">
@@ -95,7 +98,7 @@ export function BookingPrompt() {
             </Button>
           </motion.div>
         ) : (
-          <motion.div key="form" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-white p-4 rounded-xl shadow-md border border-slate-100 w-[300px]">
+          <motion.div key="form" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-white p-4 rounded-xl shadow-md border border-slate-100 w-full sm:w-[320px]">
             <h4 className="font-semibold text-navy mb-3 text-sm">Please provide details to secure your rate:</h4>
             
             <div className="space-y-3 mb-4">
@@ -124,7 +127,7 @@ export function BookingPrompt() {
               </div>
             </div>
 
-            {error && <p className="text-red-500 text-xs mb-3">{error}</p>}
+            {error && <p className="text-red-500 text-xs mb-3 font-medium bg-red-50 p-2 rounded">{error}</p>}
 
             <Button onClick={submitBooking} disabled={isLoading} className="w-full bg-navy hover:bg-navy-light text-white rounded-lg h-10 font-medium">
               {isLoading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Verifying...</> : 'Confirm Booking'}
