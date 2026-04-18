@@ -1,0 +1,159 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Vernacular FD Advisor - Fintech Elegance Palette */
+  /* Primary Trust: Deep Banking Navy */
+  --background: #F8FAFC; /* Clean Off-White */
+  --foreground: #0F172A; /* Deep Navy */
+  --card: #FFFFFF; /* Pure White for cards */
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #0F172A; /* Deep Banking Navy */
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9; /* Soft Gray */
+  --secondary-foreground: #0F172A;
+  --muted: #E2E8F0;
+  --muted-foreground: #64748B; /* Slate */
+  --accent: #0D9488; /* Vibrant Teal - Trust CTA */
+  --accent-foreground: #FFFFFF;
+  --accent-gold: #D97706; /* Warm Gold - Highlight CTA */
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #0D9488;
+  --chart-1: #0D9488;
+  --chart-2: #D97706;
+  --chart-3: #0F172A;
+  --chart-4: #64748B;
+  --chart-5: #E2E8F0;
+  --radius: 0.75rem;
+  
+  /* Custom tokens for FD Advisor */
+  --teal: #0D9488;
+  --teal-light: #14B8A6;
+  --teal-dark: #0F766E;
+  --gold: #D97706;
+  --gold-light: #F59E0B;
+  --navy: #0F172A;
+  --navy-light: #1E293B;
+  --success: #16A34A;
+  --success-light: #DCFCE7;
+}
+
+/* Custom utility classes for FD Advisor */
+@layer components {
+  /* App frame container - mobile-first with desktop preview frame */
+  .app-frame {
+    @apply w-full h-[100dvh] mx-auto bg-background;
+  }
+  
+  @media (min-width: 768px) {
+    .app-frame {
+      @apply max-w-md shadow-2xl border-x border-slate-200 rounded-xl overflow-hidden;
+    }
+  }
+  
+  /* Jargon term highlighting */
+  .jargon-term {
+    @apply border-b border-dashed border-teal cursor-pointer transition-colors hover:bg-teal/10;
+  }
+  
+  /* Chat bubble animations */
+  .chat-bubble {
+    @apply rounded-2xl px-4 py-3 max-w-[85%];
+  }
+  
+  .chat-bubble-user {
+    @apply bg-navy text-white ml-auto rounded-br-md;
+  }
+  
+  .chat-bubble-bot {
+    @apply bg-white text-navy border border-border mr-auto rounded-bl-md shadow-sm;
+  }
+  
+  /* Calculator widget */
+  .calculator-card {
+    @apply bg-gradient-to-br from-teal/5 to-gold/5 border border-teal/20 rounded-xl p-4;
+  }
+  
+  /* Smooth scrollbar */
+  .chat-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) transparent;
+  }
+  
+  .chat-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .chat-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .chat-scroll::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 4px;
+  }
+}
+
+@theme inline {
+  /* Typography - Plus Jakarta Sans as primary, Noto Sans Devanagari for Hindi/Marathi */
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom FD Advisor Colors */
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
+  --color-teal-dark: var(--teal-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-success: var(--success);
+  --color-success-light: var(--success-light);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
