@@ -62,6 +62,7 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
   <br>
   <em>Fig 5: Secure KYC & Lead Capture Form</em>
 </p>
+*(Note: The "booking" step in this MVP demonstrates a seamless KYC and intent-capture flow to guide the user toward conversion, rather than executing a live financial transaction).*
 
 ---
 
