@@ -5,37 +5,75 @@
 [![Demo Video](https://img.shields.io/badge/Watch-Demo_Video-FF0000?style=for-the-badge&logo=youtube)](https://drive.google.com/file/d/1UfHlUAnBtbJ_9pCQyf_2IbOYck2Vzw4Q/view?usp=sharing)
 [![Tech Stack](https://img.shields.io/badge/Stack-MERN_|_Next.js_|_Gemini-20232A?style=for-the-badge)](#%EF%B8%8F-tech-stack)
 
-> **Note:** The Express backend is deployed on Render's free tier. We utilize an automated cron-job to prevent server cold starts, ensuring the AI responds instantly when you test the app.
+> **📱 The Real-World Scenario:** > A user in Gorakhpur receives a WhatsApp message: *"Suryoday Small Finance Bank — 8.50% p.a. — 12M tenor."* They want to save money, but the financial jargon and English-only banking apps are intimidating. They don't know what to do next.
 
 ---
 
-## 📖 Overview
+## 🛑 The Problem
+Financial inclusion in India is growing, but financial *literacy* lags behind. When regional users receive lucrative Fixed Deposit (FD) offers, they often drop off because:
+1. The terminology (p.a., tenor, maturity) is confusing.
+2. Calculating the actual return requires complex math.
+3. Traditional banking apps force them through tedious, English-heavy web forms.
 
-Navigating fixed deposits and banking jargon can be overwhelming. FD Advisor is a multilingual, AI-driven lead-generation funnel designed to make financial decisions frictionless. 
+## 💡 The Solution
+**FD Advisor** is a multilingual, conversational financial companion designed to make banking frictionless. Instead of filling out forms, the app allows users to simply paste the raw SMS they received. The AI instantly breaks down the offer, explains it in their native language, and guides the user smoothly through the next steps.
 
-Instead of forcing users to manually fill out tedious web forms, the app allows them to simply paste an FD offer they received via SMS or WhatsApp (e.g., *"SBI is offering 7.5% p.a. for 12 months"*). Behind the scenes, Google's **Gemini 2.5 Flash** parses the unstructured text, calculates the returns, translates complex terms into the user's preferred language, and smoothly transitions them into a secure KYC lead-capture flow.
+**How we solve it:**
+* **Language Barriers** ➔ Native chat support in English, Hindi, and Marathi.
+* **Confusing Jargon** ➔ Dynamic, clickable terms that reveal simple explanations.
+* **Complex Math** ➔ An interactive calculator to visualize returns instantly.
+* **High Drop-off Rates** ➔ A conversational flow that guides the user through initial KYC.
+
+### 🔄 The User Flow
+**Paste Offer ➔ Understand Jargon ➔ Calculate Returns ➔ Convert (KYC)**
+
+*Ultimately, this bridges the financial literacy gap for millions of regional Indians. By simplifying complex terms and capturing intent conversationally, it empowers users to make confident investment decisions.*
 
 ---
 
 ## 📸 Product Gallery
 
-1. **Landing & Chat Interface:** ![Landing Page](./assets/homepage.png)
-2. **Multilingual Support (EN/HI/MR):** ![Welcome Screen](./assets/welcome.png)
-3. **Dynamic Jargon Highlighting:** ![Start Chat](./assets/start.png)
-4. **Interactive Profit Calculator:** ![Calculator Interface](./assets/chat.png)
-5. **Secure Lead Generation Form:** ![Booking Confirmation](./assets/confirm.png)
+<p align="center">
+  <img src="./assets/homepage.png" height="500px" alt="Landing Page" />
+  <br>
+  <em>The clean, welcoming interface where users begin their financial journey.</em>
+</p>
+
+<p align="center">
+  <img src="./assets/welcome.png" height="500px" alt="Welcome Screen" />
+  <br>
+  <em>Users can instantly switch the entire UI between English, Hindi, and Marathi.</em>
+</p>
+
+<p align="center">
+  <img src="./assets/start.png" height="500px" alt="Start Chat" />
+  <br>
+  <em>Pasting an SMS instantly breaks down the offer and highlights complex jargon.</em>
+</p>
+
+<p align="center">
+  <img src="./assets/chat.png" height="500px" alt="Calculator Interface" />
+  <br>
+  <em>Interactive sliders let users visualize their compound interest in real-time.</em>
+</p>
+
+<p align="center">
+  <img src="./assets/confirm.png" height="500px" alt="Booking Confirmation" />
+  <br>
+  <em>A guided conversational form securely captures the user's PAN and Name for KYC.</em>
+</p>
+
+*(Note: The "booking" step in this MVP demonstrates a seamless KYC and intent-capture flow to guide the user toward conversion, rather than executing a live financial transaction).*
 
 ---
 
 ## ✨ Core Features
 
-* 🧠 **Intelligent Parsing (Gemini 2.5 Flash):** Extracts precise financial data (Bank Name, Interest Rate, Tenure) directly from natural language using highly constrained JSON-schema system prompts.
-* 🌍 **Built for India:** Seamlessly chat, read explanations, and navigate the UI in English, Hindi, and Marathi, powered by `react-i18next`.
-* 🔍 **Contextual Jargon Buster:** The AI automatically flags complex financial terms (like *p.a.* or *Tenure*). A custom case-insensitive regex engine highlights these terms dynamically in the chat, making them clickable to reveal simple, bottom-sheet definitions.
-* 🧮 **Interactive Maturity Calculator:** A real-time compound interest engine complete with fluid visual sliders so users can explore their potential returns.
-* 🛡️ **Verified Lead Capture:** An in-chat KYC form that captures the user's Full Name and PAN. It utilizes strict frontend regex validation (e.g., `ABCDE1234F`) and backend Mongoose schema enforcement before touching the database.
-* 💾 **Local Persistence:** Chat history and language preferences are stored locally via `zustand/middleware/persist`, ensuring users never lose their conversational context if they refresh the page.
-* 🎨 **Premium UI/UX:** Designed with a clean, modern aesthetic. Built entirely with Tailwind CSS and Framer Motion for buttery-smooth animations and bouncy, responsive chat bubbles.
+* 🌍 **Vernacular First:** Built from the ground up for India. Users can chat, read explanations, and navigate the UI in their preferred language, powered by `react-i18next`.
+* 🔍 **Contextual Jargon Buster:** The app automatically flags complex financial terms. A custom regex engine highlights these terms dynamically, making them clickable to reveal simple, bottom-sheet definitions.
+* 🧮 **Interactive Maturity Calculator:** A fluid compound interest engine complete with visual sliders so users can explore their potential returns without leaving the chat.
+* 🛡️ **Guided Lead Capture:** An in-chat KYC form that captures the user's Full Name and PAN, utilizing strict frontend regex validation (e.g., `ABCDE1234F`) before securely saving to the database.
+* 💾 **Local Persistence:** Chat history and language preferences are stored locally via `zustand`, ensuring users never lose their conversational context if they accidentally refresh.
 
 ---
 
@@ -53,23 +91,22 @@ Instead of forcing users to manually fill out tedious web forms, the app allows 
 
 ## 🏗️ Architecture & Engineering Highlights
 
-* **JSON Prompt Engineering & Sanitization:** Gemini 2.5 Flash is strictly instructed to return data in a predictable JSON schema. To prevent crash loops, the backend middleware automatically strips markdown formatting from the AI's response before parsing the payload.
-* **The "Anti-Sleep" Cron Architecture:** To combat serverless free-tier inactivity cycles, an external ping hits the server's `/health` endpoint every 14 minutes. This keeps the Express server perpetually awake, guaranteeing zero-latency AI responses for end users.
-* **Robust CORS Policy:** The Express backend is locked down to explicitly accept API requests *only* from the deployed Vercel production domain and the local development environment, rejecting unauthorized cross-origin attempts.
+* **Intelligent NLP Parsing:** Google's Gemini 2.5 Flash API handles the heavy lifting of extracting exact financial data (Bank Name, Rate, Tenure) from messy natural language. 
+* **Strict JSON Sanitization:** The AI is constrained via system prompts to return a highly specific JSON schema. To prevent crash loops, the backend middleware automatically strips markdown formatting from the AI's response before parsing the payload.
+* **The "Anti-Sleep" Cron Architecture:** To combat serverless free-tier inactivity cycles, an external ping hits the server's `/health` endpoint every 14 minutes. This keeps the Express server perpetually awake, guaranteeing zero-latency AI responses for end users. *(⚡ Performance Note: I implemented this custom architecture to ensure the MVP responds instantly during evaluation).*
+* **Robust CORS Policy:** The backend is locked down to explicitly accept API requests *only* from the deployed Vercel production domain and the local dev environment, rejecting unauthorized cross-origin attempts.
 
 ---
 
 ## 🚀 Local Development
 
-To run this project locally, ensure you have Node.js (v18+) installed, a MongoDB Atlas cluster, and a valid Google Gemini API key.
-
 ### 1. Clone & Install
 ```bash
 git clone [https://github.com/thevaibhavtyagi/fd-advisor.git](https://github.com/thevaibhavtyagi/fd-advisor.git)
 cd fd-advisor
+```
 
 ### 2. Backend Setup
-Open a terminal in the `backend` directory:
 ```bash
 cd backend
 npm install
@@ -83,7 +120,6 @@ GEMINI_API_KEY=your_google_gemini_api_key
 Start the server:
 ```bash
 npm start
-# Output should confirm: [MongoDB] Connected successfully
 ```
 
 ### 3. Frontend Setup
