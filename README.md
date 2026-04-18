@@ -20,31 +20,31 @@ Instead of forcing users to manually fill out tedious web forms, the app allows 
 ## 📸 Product Gallery
 
 <p align="center">
-  <img src="./assets/homepage.png" width="80%" alt="Landing Page" />
+  <img src="./assets/homepage.png" height="400px" alt="Landing Page" />
   <br>
   <em>Fig 1: Modern, high-fidelity Landing Interface</em>
 </p>
 
 <p align="center">
-  <img src="./assets/welcome.png" width="80%" alt="Welcome Screen" />
+  <img src="./assets/welcome.png" height="400px" alt="Welcome Screen" />
   <br>
   <em>Fig 2: Multilingual Onboarding (EN/HI/MR)</em>
 </p>
 
 <p align="center">
-  <img src="./assets/start.png" width="80%" alt="Start Chat" />
+  <img src="./assets/start.png" height="400px" alt="Start Chat" />
   <br>
   <em>Fig 3: AI-Powered Conversational Start</em>
 </p>
 
 <p align="center">
-  <img src="./assets/chat.png" width="80%" alt="Calculator Interface" />
+  <img src="./assets/chat.png" height="400px" alt="Calculator Interface" />
   <br>
   <em>Fig 4: Interactive Profit & Maturity Calculator</em>
 </p>
 
 <p align="center">
-  <img src="./assets/confirm.png" width="80%" alt="Booking Confirmation" />
+  <img src="./assets/confirm.png" height="400px" alt="Booking Confirmation" />
   <br>
   <em>Fig 5: Secure KYC & Lead Capture Form</em>
 </p>
@@ -91,6 +91,7 @@ To run this project locally, ensure you have Node.js (v18+) installed, a MongoDB
 ```bash
 git clone [https://github.com/thevaibhavtyagi/fd-advisor.git](https://github.com/thevaibhavtyagi/fd-advisor.git)
 cd fd-advisor
+```
 
 ### 2. Backend Setup
 Open a terminal in the `backend` directory:
