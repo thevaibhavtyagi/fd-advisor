@@ -34,36 +34,34 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
 ## 📸 Product Gallery
 
 <p align="center">
-  <img src="./assets/homepage.png" height="500px" alt="Landing Page" />
+  <img src="./assets/homepage.png" height="400px" alt="Landing Page" />
   <br>
-  <em>The clean, welcoming interface where users begin their financial journey.</em>
+  <em>Fig 1: Modern, high-fidelity Landing Interface</em>
 </p>
 
 <p align="center">
-  <img src="./assets/welcome.png" height="500px" alt="Welcome Screen" />
+  <img src="./assets/welcome.png" height="400px" alt="Welcome Screen" />
   <br>
-  <em>Users can instantly switch the entire UI between English, Hindi, and Marathi.</em>
+  <em>Fig 2: Multilingual Onboarding (EN/HI/MR)</em>
 </p>
 
 <p align="center">
-  <img src="./assets/start.png" height="500px" alt="Start Chat" />
+  <img src="./assets/start.png" height="400px" alt="Start Chat" />
   <br>
-  <em>Pasting an SMS instantly breaks down the offer and highlights complex jargon.</em>
+  <em>Fig 3: AI-Powered Conversational Start</em>
 </p>
 
 <p align="center">
-  <img src="./assets/chat.png" height="500px" alt="Calculator Interface" />
+  <img src="./assets/chat.png" height="400px" alt="Calculator Interface" />
   <br>
-  <em>Interactive sliders let users visualize their compound interest in real-time.</em>
+  <em>Fig 4: Interactive Profit & Maturity Calculator</em>
 </p>
 
 <p align="center">
-  <img src="./assets/confirm.png" height="500px" alt="Booking Confirmation" />
+  <img src="./assets/confirm.png" height="400px" alt="Booking Confirmation" />
   <br>
-  <em>A guided conversational form securely captures the user's PAN and Name for KYC.</em>
+  <em>Fig 5: Secure KYC & Lead Capture Form</em>
 </p>
-
-*(Note: The "booking" step in this MVP demonstrates a seamless KYC and intent-capture flow to guide the user toward conversion, rather than executing a live financial transaction).*
 
 ---
 
