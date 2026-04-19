@@ -1,12 +1,11 @@
 /**
  * AI Controller - Gemini Integration for FD Analysis
- * Production Version - Strict Environment Variable Loading
+ * Updated with Bengali (bn) Support
  */
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import dotenv from 'dotenv';
 
-// 1. Force environment variables to load FIRST
 dotenv.config();
 
 const SYSTEM_INSTRUCTION = `You are an expert Fixed Deposit (FD) advisor for Indian customers. Your role is to:
@@ -28,7 +27,7 @@ CRITICAL: You MUST respond ONLY with valid JSON in this exact schema:
 
 Rules:
 - botMessage should be warm, conversational, and in the user's preferred language
-- For Hindi/Marathi, use Devanagari script naturally mixed with English banking terms
+- For Hindi/Marathi/Bengali, use their native script naturally mixed with English banking terms like FD, interest, etc.
 - Always explain what the customer will earn in simple terms
 - Identify 2-4 jargon terms maximum from the offer
 - If no valid FD offer is found, set bankName to null and explain politely
@@ -38,7 +37,8 @@ Rules:
 const LANGUAGE_PROMPTS = {
   en: 'Respond in simple English that anyone can understand.',
   hi: 'Respond in Hindi (हिंदी) using Devanagari script. Mix English for banking terms like FD, interest, etc.',
-  mr: 'Respond in Marathi (मराठी) using Devanagari script. Mix English for banking terms like FD, interest, etc.',
+  mr: 'Respond in Marathi (मराঠি) using Devanagari script. Mix English for banking terms like FD, interest, etc.',
+  bn: 'Respond in Bengali (বাংলা) using Bengali script. Mix English for banking terms like FD, interest, etc.',
 };
 
 export async function analyzeOffer(req, res) {
@@ -49,7 +49,6 @@ export async function analyzeOffer(req, res) {
       return res.status(400).json({ success: false, error: 'userMessage is required' });
     }
 
-    // 2. Initialize Gemini dynamically so it always catches the .env key
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       console.error('[CRITICAL] GEMINI_API_KEY is missing from .env file!');

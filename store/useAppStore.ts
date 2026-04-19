@@ -42,7 +42,7 @@ export interface BookingLead {
 }
 
 export type AppScreen = 'splash' | 'language-select' | 'mobile-auth' | 'chat' | 'booking-success'
-export type Language = 'en' | 'hi' | 'mr'
+export type Language = 'en' | 'hi' | 'mr' | 'bn'
 
 interface AppState {
   currentScreen: AppScreen
@@ -87,10 +87,10 @@ const initialWelcomeMessage: ChatMessage = {
 
 const initialState = {
   currentScreen: 'splash' as AppScreen,
-  language: 'hi' as Language,
+  language: 'hi' as Language, // Kept default as Hindi
   mobileNumber: '',
   isAuthenticated: false,
-  messages: [initialWelcomeMessage], // STRICTLY fresh start
+  messages: [initialWelcomeMessage],
   isTyping: false,
   bookingLead: null,
   isJargonSheetOpen: false,
@@ -145,7 +145,7 @@ export const useAppStore = create<AppState>()(
           if (response.success && response.data) {
             const { bankName, interestRate, tenureMonths, botMessage, jargonTerms } = response.data
 
-            const formattedJargonTerms = jargonTerms?.map((term, index) => ({
+            const formattedJargonTerms = jargonTerms?.map((term: any, index: number) => ({
               term: term.term,
               definitionKey: `dynamic.jargon.${index}`,
               definition: term.definition,

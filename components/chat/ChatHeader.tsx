@@ -15,6 +15,7 @@ const languages: { code: Language; label: string; script: string }[] = [
   { code: 'en', label: 'English', script: 'EN' },
   { code: 'hi', label: 'Hindi', script: 'हि' },
   { code: 'mr', label: 'Marathi', script: 'म' },
+  { code: 'bn', label: 'Bengali', script: 'বাং' },
 ]
 
 export function ChatHeader() {

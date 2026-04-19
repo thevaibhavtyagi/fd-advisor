@@ -8,7 +8,8 @@ import { Globe } from 'lucide-react'
 const languages: { code: Language; label: string; script: string }[] = [
   { code: 'en', label: 'English', script: 'English' },
   { code: 'hi', label: 'Hindi', script: 'हिंदी' },
-  { code: 'mr', label: 'Marathi', script: 'मराठी' },
+  { code: 'mr', label: 'Marathi', script: 'मরাठी' },
+  { code: 'bn', label: 'Bengali', script: 'বাংলা' },
 ]
 
 const containerVariants = {

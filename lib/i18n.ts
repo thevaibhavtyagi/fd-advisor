@@ -5,11 +5,13 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import en from '@/locales/en.json'
 import hi from '@/locales/hi.json'
 import mr from '@/locales/mr.json'
+import bn from '@/locales/bn.json'
 
 const resources = {
   en: { translation: en },
   hi: { translation: hi },
   mr: { translation: mr },
+  bn: { translation: bn },
 }
 
 i18n

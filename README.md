@@ -19,7 +19,7 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
 **FD Advisor** is a multilingual, conversational financial companion designed to make banking frictionless. Instead of filling out forms, the app allows users to simply paste the raw SMS they received. The AI instantly breaks down the offer, explains it in their native language, and guides the user smoothly through the next steps.
 
 **How we solve it:**
-* **Language Barriers** ➔ Native chat support in English, Hindi, and Marathi.
+* **Language Barriers** ➔ Native chat support in English, Hindi, Marathi, and Bengali.
 * **Confusing Jargon** ➔ Dynamic, clickable terms that reveal simple explanations.
 * **Complex Math** ➔ An interactive calculator to visualize returns instantly.
 * **High Drop-off Rates** ➔ A conversational flow that guides the user through initial KYC.
@@ -42,7 +42,7 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
 <p align="center">
   <img src="./assets/homepage.png" height="400px" alt="Welcome Screen" />
   <br>
-  <em>Fig 2: Multilingual Onboarding (EN/HI/MR)</em>
+  <em>Fig 2: Multilingual Onboarding (EN/HI/MR/BN)</em>
 </p>
 
 <p align="center">
@@ -92,7 +92,7 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
 
 * **Intelligent NLP Parsing:** Google's Gemini 2.5 Flash API handles the heavy lifting of extracting exact financial data (Bank Name, Rate, Tenure) from messy natural language. 
 * **Strict JSON Sanitization:** The AI is constrained via system prompts to return a highly specific JSON schema. To prevent crash loops, the backend middleware automatically strips markdown formatting from the AI's response before parsing the payload.
-* **The "Anti-Sleep" Cron Architecture:** To combat serverless free-tier inactivity cycles, an external ping hits the server's `/health` endpoint every 14 minutes. This keeps the Express server perpetually awake, guaranteeing zero-latency AI responses for end users. *(⚡ Performance Note: I implemented this custom architecture to ensure the MVP responds instantly during evaluation).*
+* **Zero-Latency Keep-Alive:** To combat serverless free-tier inactivity cycles, an external ping hits the server's `/health` endpoint every 14 minutes. This prevents cold starts on Render, guaranteeing instant AI responses for end users and evaluators without delay.
 * **Robust CORS Policy:** The backend is locked down to explicitly accept API requests *only* from the deployed Vercel production domain and the local dev environment, rejecting unauthorized cross-origin attempts.
 
 ---
