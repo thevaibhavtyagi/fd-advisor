@@ -28,7 +28,8 @@
     "yes": "Yes, let's book!",
     "no": "Not now",
     "bookingSuccess": "Congratulations! Your FD booking is confirmed.",
-    "noWorries": "No problem! Feel free to ask me any other questions about Fixed Deposits. I'm here to help!"
+    "noWorries": "No problem! Feel free to ask me any other questions about Fixed Deposits. I'm here to help!",
+    "offlineMode": "It seems I am offline right now, but we can still calculate an estimated offer."
   },
   "calculator": {
     "title": "Profit Calculator",

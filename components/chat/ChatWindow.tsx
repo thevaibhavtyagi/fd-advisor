@@ -15,18 +15,23 @@ export function ChatWindow() {
   const isTyping = useAppStore((state) => state.isTyping)
   const scrollRef = useRef<HTMLDivElement>(null)
 
+  // Improved scroll anchor to ensure the typing indicator remains visible
+  // even if exponential backoff delays the response
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+      scrollRef.current.scrollTo({
+        top: scrollRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
     }
   }, [messages, isTyping])
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-slate-50/50">
       <ChatHeader />
       <JargonDrawer />
 
-      <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-4 py-4">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto chat-scroll px-4 py-4 pb-20">
         <AnimatePresence mode="popLayout">
           {messages.map((message) => {
             switch (message.type) {
@@ -54,10 +59,10 @@ export function ChatWindow() {
           {isTyping && (
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="flex justify-start mb-3">
               <div className="bg-white border border-slate-100 rounded-2xl rounded-bl-md px-4 py-3 shadow-sm">
-                <div className="flex items-center gap-1">
-                  <motion.span className="w-2 h-2 bg-teal rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.5, repeat: Infinity, delay: 0 }} />
-                  <motion.span className="w-2 h-2 bg-teal rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.5, repeat: Infinity, delay: 0.1 }} />
-                  <motion.span className="w-2 h-2 bg-teal rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.5, repeat: Infinity, delay: 0.2 }} />
+                <div className="flex items-center gap-1.5">
+                  <motion.span className="w-2 h-2 bg-teal-500 rounded-full" animate={{ y: [0, -5, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0 }} />
+                  <motion.span className="w-2 h-2 bg-teal-500 rounded-full" animate={{ y: [0, -5, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.15 }} />
+                  <motion.span className="w-2 h-2 bg-teal-500 rounded-full" animate={{ y: [0, -5, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.3 }} />
                 </div>
               </div>
             </motion.div>
