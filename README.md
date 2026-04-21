@@ -73,7 +73,7 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
 * 🧮 **Interactive Maturity Calculator:** A fluid compound interest engine complete with visual sliders so users can explore their potential returns without leaving the chat.
 * 🛡️ **Guided Lead Capture:** An in-chat KYC form that captures the user's Full Name and PAN, utilizing strict frontend regex validation (e.g., `ABCDE1234F`) before securely saving to the database.
 * 💾 **Local Persistence:** Chat history and language preferences are stored locally via `zustand`, ensuring users never lose their conversational context if they accidentally refresh.
-
+* 🛡️ **Fault-Tolerant Offline Mode:** Hackathon demos often crash due to free-tier API rate limits. If the AI service drops, the app seamlessly switches to a context-aware Regex fallback engine, ensuring the user still gets a localized response, jargon highlights, and access to the calculator without ever seeing an error screen.
 ---
 
 ## 🛠️ Tech Stack
@@ -91,6 +91,7 @@ Financial inclusion in India is growing, but financial *literacy* lags behind. W
 ## 🏗️ Architecture & Engineering Highlights
 
 * **Intelligent NLP Parsing:** Google's Gemini 2.5 Flash API handles the heavy lifting of extracting exact financial data (Bank Name, Rate, Tenure) from messy natural language. 
+* **Tri-Layer Resilience & Fallback:** To guarantee 100% uptime during API outages (503/429 errors), the backend implements an exponential backoff retry loop. If the LLM completely fails, a custom deterministic regex parser takes over. It intercepts the raw text, extracts the banking metrics, and injects predefined, exact-match jargon terms into localized offline templates, keeping the frontend UI perfectly synchronized.
 * **Strict JSON Sanitization:** The AI is constrained via system prompts to return a highly specific JSON schema. To prevent crash loops, the backend middleware automatically strips markdown formatting from the AI's response before parsing the payload.
 * **Zero-Latency Keep-Alive:** To combat serverless free-tier inactivity cycles, an external ping hits the server's `/health` endpoint every 14 minutes. This prevents cold starts on Render, guaranteeing instant AI responses for end users and evaluators without delay.
 * **Robust CORS Policy:** The backend is locked down to explicitly accept API requests *only* from the deployed Vercel production domain and the local dev environment, rejecting unauthorized cross-origin attempts.
